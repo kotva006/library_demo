@@ -1,0 +1,11 @@
+<div>
+  Add an Author!
+  <.form :let={f} for={@changeset} action={~p"/library/authors"}>
+    <.input field={f[:first_name]} />
+    <.input field={f[:middle_name]} />
+    <.input field={f[:last_name]} />
+    <.input field={f[:pen_name]} />
+
+    <button type="submit">Submit</button>
+  </.form>
+</div>

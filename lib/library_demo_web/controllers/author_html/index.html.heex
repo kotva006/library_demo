@@ -1,0 +1,10 @@
+<div>
+  <div>
+    <.link href={~p"/library/authors/new"}>Add New Author</.link>
+  </div>
+  <.table id="authors" rows={@authors}>
+    <:col :let={author} label="First Name"><%= author.first_name %></:col>
+    <:col :let={author} label="Last Name"><%= author.last_name %></:col>
+    <:col :let={author} label="Pen Name"><%= author.pen_name %></:col>
+  </.table>
+</div>

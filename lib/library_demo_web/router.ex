@@ -18,7 +18,14 @@ defmodule LibraryDemoWeb.Router do
     pipe_through :browser
 
     get "/", PageController, :home
-    get "/library", LibraryController, :index
+  end
+
+  scope "/library", LibraryDemoWeb do
+    pipe_through :browser
+
+    get "/", LibraryController, :index
+    resources "/books", BookController, except: [:index]
+    resources "/authors", AuthorController
   end
 
   # Other scopes may use custom stacks.
