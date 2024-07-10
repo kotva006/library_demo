@@ -15,6 +15,10 @@ defmodule LibraryDemo.Book do
     timestamps(type: :utc_datetime)
   end
 
+  def list() do
+    Repo.all(__MODULE__)
+  end
+
   def create(attrs) do
     %__MODULE__{}
     |> changeset(attrs)

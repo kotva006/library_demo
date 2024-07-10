@@ -1,0 +1,11 @@
+<div>
+  <div>
+    <.link href={~p"/library/books/new"}>Add New Book</.link>
+  </div>
+  <.table id="books" rows={@books}>
+    <:col :let={book} label="Title"><%= book.title %></:col>
+    <:col :let={book} label="Author"><%= book.author_id %></:col>
+    <:col :let={book} label="Publication Date"><%= book.publication_date %></:col>
+    <:col :let={book} label="Genre"><%= book.genre %></:col>
+  </.table>
+</div>

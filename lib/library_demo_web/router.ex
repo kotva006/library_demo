@@ -24,7 +24,7 @@ defmodule LibraryDemoWeb.Router do
     pipe_through :browser
 
     get "/", LibraryController, :index
-    resources "/books", BookController, except: [:index]
+    resources "/books", BookController
     resources "/authors", AuthorController
   end
 

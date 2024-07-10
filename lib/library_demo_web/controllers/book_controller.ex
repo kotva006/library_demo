@@ -4,6 +4,11 @@ defmodule LibraryDemoWeb.BookController do
   alias LibraryDemo.Book
   alias LibraryDemo.Author
 
+  def index(conn, _params) do
+    books = Book.list()
+    render(conn, :index, books: books)
+  end
+
   def show(conn, _params) do
     #TODO implement
     conn
