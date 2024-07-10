@@ -9,10 +9,11 @@ defmodule LibraryDemoWeb.BookController do
     conn
   end
 
-  def author_to_name_id(%{pen_name: pen_name, id: id}) do
+  defp author_to_name_id(%{pen_name: pen_name, id: id}) do
     {pen_name, id}
   end
 
+  @spec new(Plug.Conn.t(), any()) :: Plug.Conn.t()
   def new(conn, _params) do
     changeset = Book.changeset(%Book{})
     authors = Author.list();
@@ -25,10 +26,12 @@ defmodule LibraryDemoWeb.BookController do
     |> render(:new)
   end
 
+  @spec create(Plug.Conn.t(), any()) :: Plug.Conn.t()
   def create(conn, params) do
-    #TODO implement
-    IO.inspect(params)
+    #TODO handle more errors
+    {:ok, _model} = Book.create(Map.get(params, "book"))
     conn
+    |> send_resp(201, "")
   end
 
   def edit(conn, _params) do

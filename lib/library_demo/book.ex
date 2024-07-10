@@ -1,6 +1,9 @@
 defmodule LibraryDemo.Book do
   use Ecto.Schema
+
   import Ecto.Changeset
+
+  alias LibraryDemo.Repo
 
   schema "books" do
     field :title, :string
@@ -12,10 +15,16 @@ defmodule LibraryDemo.Book do
     timestamps(type: :utc_datetime)
   end
 
+  def create(attrs) do
+    %__MODULE__{}
+    |> changeset(attrs)
+    |> Repo.insert()
+  end
+
   @doc false
   def changeset(book, attrs \\ %{}) do
     book
     |> cast(attrs, [:title, :cover_url, :publication_date, :genre])
-    |> validate_required([:title, :cover_url, :publication_date, :genre])
+    |> validate_required([:title, :publication_date, :genre])
   end
 end

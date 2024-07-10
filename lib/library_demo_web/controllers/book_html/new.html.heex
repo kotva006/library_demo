@@ -1,9 +1,9 @@
 <div>
   Add A Library Book!
-  <.form :let={f} for={@changeset} action={~p"/library/books/new"}>
+  <.form :let={f} for={@changeset} action={~p"/library/books"}>
     <.input field={f[:title]} label={"Title"} />
     <.input field={f[:author]} type={"select"} label={"Author"} options={@authors} />
-    <.input field={f[:title]} label={"Genre"} />
+    <.input field={f[:genre]} label={"Genre"} />
     <.input field={f[:publication_date]} label={"Publication Date"} type={"date"} />
 
     <button type="submit">Submit</button>

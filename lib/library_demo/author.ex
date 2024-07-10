@@ -1,6 +1,8 @@
 defmodule LibraryDemo.Author do
   use Ecto.Schema
+
   import Ecto.Changeset
+
   alias LibraryDemo.Repo
 
   schema "authors" do
