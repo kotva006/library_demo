@@ -17,13 +17,14 @@ defmodule LibraryDemoWeb.Router do
   scope "/", LibraryDemoWeb do
     pipe_through :browser
 
-    get "/", PageController, :home
+    get "/", LibraryController, :redirect_to_library
   end
 
   scope "/library", LibraryDemoWeb do
     pipe_through :browser
 
     get "/", LibraryController, :index
+    get "/search", LibraryController, :search
     resources "/books", BookController
     resources "/authors", AuthorController
   end

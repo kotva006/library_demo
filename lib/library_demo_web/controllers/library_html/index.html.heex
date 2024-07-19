@@ -1,1 +1,14 @@
-<div>Hello World</div>
+<div>
+  <h1>Quantum Library</h1>
+  <p>Here we store all the worlds greatest books, in quantum storage</p>
+  <div>
+    <.link href={~p"/library/authors"}>View Authors</.link>
+    <.link href={~p"/library/books"}>View Books</.link>
+  </div>
+  <div>
+    <.form :let={f} for={@changeset} action={~p"/library/search"} method="get">
+      <.input field={f[:query]} />
+      <button type="submit">Search</button>
+    </.form>
+  </div>
+</div>
