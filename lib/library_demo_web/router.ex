@@ -27,6 +27,8 @@ defmodule LibraryDemoWeb.Router do
     get "/search", LibraryController, :search
     resources "/books", BookController
     resources "/authors", AuthorController
+
+    live "/my", Live.Library
   end
 
   # Other scopes may use custom stacks.
