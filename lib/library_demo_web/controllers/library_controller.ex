@@ -2,18 +2,11 @@ defmodule LibraryDemoWeb.LibraryController do
   use LibraryDemoWeb, :controller
 
   def index(conn, _params) do
-    conn
-    |> assign(:changeset, %{})
-    |> render(:index)
+    render(conn, :index, search: %{})
   end
 
-  def search(conn, _params) do
-    conn
-    |> assign(:changeset, %{})
-    |> render(:search)
-  end
-
-  def redirect_to_library(conn, _params) do
-    redirect(conn, to: ~p"/library")
+  def search(conn, params) do
+    IO.inspect(params)
+    render(conn, :search)
   end
 end
