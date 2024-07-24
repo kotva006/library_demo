@@ -9,4 +9,8 @@ defmodule LibraryDemoWeb.LibraryController do
     IO.inspect(params)
     render(conn, :search)
   end
+
+  def redirect_to_library(conn, _params) do
+    redirect(conn, to: ~p"/library")
+  end
 end
