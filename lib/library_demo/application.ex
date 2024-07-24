@@ -10,6 +10,7 @@ defmodule LibraryDemo.Application do
     children = [
       LibraryDemoWeb.Telemetry,
       LibraryDemo.Repo,
+      LibraryDemo.Notes.NotesList,
       {DNSCluster, query: Application.get_env(:library_demo, :dns_cluster_query) || :ignore},
       {Phoenix.PubSub, name: LibraryDemo.PubSub},
       # Start the Finch HTTP client for sending emails

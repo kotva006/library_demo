@@ -20,6 +20,12 @@ defmodule LibraryDemoWeb.Router do
     get "/", LibraryController, :redirect_to_library
   end
 
+  scope "/notes", LibraryDemoWeb do
+    pipe_through :browser
+
+    live "/", Notes.NotesList
+  end
+
   scope "/library", LibraryDemoWeb do
     pipe_through :browser
 

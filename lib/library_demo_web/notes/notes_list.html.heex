@@ -1,0 +1,17 @@
+<div>
+  <div>Notes List</div>
+  <div>
+    <.form for={@note_form} phx-submit="save">
+      <.input field={@note_form[:title]} />
+      <.input field={@note_form[:description]} />
+      <button>Save</button>
+    </.form>
+  </div>
+  <div>
+    <.table id="notes" rows={@notes}>
+      <:col :let={note} label="Title"><%= note.title %></:col>
+      <:col :let={note} label="Description"><%= note.description %></:col>
+      <:col :let={note} label="Date Modified"><%= note.date_modified %></:col>
+    </.table>
+  </div>
+</div>
