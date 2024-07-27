@@ -24,7 +24,7 @@
       <:col :let={note} label="Date Modified"><%= note.date_modified %></:col>
       <:col :let={note} label="">
         <.button phx-click="edit_note" phx-value-note_id={note.id}>Edit</.button>
-        <.button>Delete</.button>
+        <.button phx-click="delete" phx-value-note_id={note.id}>Delete</.button>
       </:col>
     </.table>
   </div>

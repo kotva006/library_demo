@@ -34,6 +34,11 @@ defmodule LibraryDemo.Notes.NotesList do
     {:reply, found_note, state}
   end
 
+  @impl true
+  def handle_cast({:delete, note_id}, state) do
+    {:noreply, %{state | notes: Map.delete(state.notes, note_id)}}
+  end
+
   # Client API
   def create(note) do
     GenServer.call(__MODULE__, {:create, note})
@@ -49,5 +54,9 @@ defmodule LibraryDemo.Notes.NotesList do
 
   def get(note_id) do
     GenServer.call(__MODULE__, {:get, note_id})
+  end
+
+  def delete(note_id) do
+    GenServer.cast(__MODULE__, {:delete, note_id})
   end
 end

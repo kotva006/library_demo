@@ -34,6 +34,15 @@ defmodule LibraryDemoWeb.Notes.NotesList do
     end
   end
 
+  @impl true
+  def handle_event("delete", %{"note_id" => note_id}, socket) do
+    {note_id, _} = Integer.parse(note_id)
+    LibraryDemo.Notes.NotesList.delete(note_id)
+    notes = socket.assigns.notes
+    notes = Enum.reject(notes, fn note -> note.id == note_id end)
+    {:noreply, assign(socket, :notes, notes)}
+  end
+
   def params_to_note( %{"note_id" => "", "description" => description, "title" => title}) do
     %{title: title, description: description, date_modified: ""}
   end
