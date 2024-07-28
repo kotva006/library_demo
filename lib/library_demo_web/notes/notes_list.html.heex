@@ -2,13 +2,13 @@
   <div class="flex flex-col bg-slate-100 rounded-lg mb-16">
     <div class="m-8">
       <div class="text-2xl mb-8">Notes Form</div>
-        <.form for={@note_form} phx-submit="save">
+        <.form for={@note_form} phx-submit="save" phx-change="change">
           <.input type="hidden" field={@note_form[:note_id]} />
           <div class="mb-8">
-            <.input field={@note_form[:title]} placeholder="Title" />
+            <.input field={@note_form[:title]} placeholder="Title" phx-debounce="blur" />
           </div>
           <div class="mb-8">
-            <.input field={@note_form[:description]} placeholder="Description" />
+            <.input field={@note_form[:description]} placeholder="Description" phx-debounce="blur"/>
           </div>
           <div class="flex flex-row justify-center">
             <.button class="w-1/2 rounded-lg bg-cyan-500 text-slate-50 py-3 text-lg">Save</.button>

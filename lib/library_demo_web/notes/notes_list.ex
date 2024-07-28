@@ -10,7 +10,7 @@ defmodule LibraryDemoWeb.Notes.NotesList do
   @impl true
   def handle_event("save", %{"note_id" => ""} = params, socket) do
     note = params_to_note(params)
-    LibraryDemo.Notes.NotesList.create(note)
+    _ = LibraryDemo.Notes.NotesList.create(note)
     notes = LibraryDemo.Notes.NotesList.list()
     {:noreply, assign(socket, notes: notes, note_form: to_form(%{}))}
   end
@@ -20,6 +20,10 @@ defmodule LibraryDemoWeb.Notes.NotesList do
     LibraryDemo.Notes.NotesList.update(note)
     notes = LibraryDemo.Notes.NotesList.list()
     {:noreply, assign(socket, notes: notes, note_form: to_form(%{}))}
+  end
+
+  def handle_event("change", params, socket) do
+    {:noreply, assign(socket, note_form: to_form(params))}
   end
 
   @impl true
