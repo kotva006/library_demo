@@ -1,5 +1,10 @@
 # LibraryDemo
 
+- Uses GenServer to store notes, and leveraging live view to render and edit notes.
+- Uses PostgreSQL database to store books and authors, using templates to edit fields.
+
+![Notes App](./notes.png)
+
 To start your Phoenix server:
 
   * Run `mix setup` to install and setup dependencies
@@ -9,7 +14,7 @@ Now you can visit [`localhost:4000`](http://localhost:4000) from your browser.
 
 Ready to run in production? Please [check our deployment guides](https://hexdocs.pm/phoenix/deployment.html).
 
-# Starting Postgresql
+## Starting Postgresql
 `sudo service postgresql start`
 
 ## Learn more
