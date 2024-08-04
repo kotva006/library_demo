@@ -26,6 +26,12 @@ defmodule LibraryDemoWeb.Router do
     live "/", Notes.NotesList
   end
 
+  scope "/timer", LibraryDemoWeb do
+    pipe_through :browser
+
+    live "/", Timer.Timer
+  end
+
   scope "/library", LibraryDemoWeb do
     pipe_through :browser
 
